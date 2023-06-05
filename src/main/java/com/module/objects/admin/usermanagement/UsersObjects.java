@@ -1,7 +1,11 @@
 package com.module.objects.admin.usermanagement;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
 public class UsersObjects {
 	
-	public static String ADMINMENU="//span[text()='Admin']";
+	@FindBy(xpath="//span[text()='Admin']")
+	public WebElement adminMenu;
 
 }
