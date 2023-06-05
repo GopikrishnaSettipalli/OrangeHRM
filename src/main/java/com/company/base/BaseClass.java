@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class BaseClass {
 
-	public static String currDir=System.getProperty("user.dir");
+	public static final String currDir=System.getProperty("user.dir");
 	public static WebDriver driver;
 	public static Properties pro;
 
@@ -21,14 +21,16 @@ public class BaseClass {
 		
 		loadConfig(currDir+"\\src\\test\\resources\\config\\config.properties");
 		
-		if ("chrome".equalsIgnoreCase(pro.getProperty("browser"))) {
+		String browser=pro.getProperty("browser");
+		
+		if ("chrome".equalsIgnoreCase(browser)) {
 			driver=new ChromeDriver();
-		}else if ("firefox".equalsIgnoreCase(pro.getProperty("browser"))) {
+		}else if ("firefox".equalsIgnoreCase(browser)) {
 			driver=new FirefoxDriver();
-		}else if ("edge".equalsIgnoreCase(pro.getProperty("browser"))) {
+		}else if ("edge".equalsIgnoreCase(browser)) {
 			driver=new EdgeDriver();
 		}else {
-			System.out.println("Given browser " +pro.getProperty("browser")+" have to impletemnt ......");
+			System.out.println("Given browser " +browser+" have to impletemnt ......");
 		}
 		
 		driver.manage().window().maximize();
