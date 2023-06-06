@@ -38,7 +38,6 @@ public class BaseClass {
 	}
 
 	public void loadConfig(String path) {
-		FileInputStream fis = null;
 		try {
 			fis=new FileInputStream(path);
 			pro=new Properties();
