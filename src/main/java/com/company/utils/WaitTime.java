@@ -7,7 +7,7 @@ public class WaitTime extends BaseClass {
 	public void waitForSec(long millisecs) {
 		try {
 			Thread.sleep(millisecs);
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			
 		}
 	}
