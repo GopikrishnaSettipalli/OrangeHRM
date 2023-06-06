@@ -44,12 +44,12 @@ public class BaseClass {
 			pro=new Properties();
 			pro.load(fis);
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}finally {
 		    try {
 				fis.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				
 			}
 		  }
 	}
