@@ -1,6 +1,7 @@
 package com.company.base;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class BaseClass {
 	public static String currDir=System.getProperty("user.dir");
 	public static WebDriver driver;
 	public static Properties pro;
+	public static FileInputStream fis;
 
 	@BeforeSuite
 	public void initBrowser() {
@@ -36,13 +38,20 @@ public class BaseClass {
 	}
 
 	public void loadConfig(String path) {
+		FileInputStream fis = null;
 		try {
-			FileInputStream fis=new FileInputStream(path);
+			fis=new FileInputStream(path);
 			pro=new Properties();
 			pro.load(fis);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}finally {
+		    try {
+				fis.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		  }
 	}
 	
 	@AfterSuite
