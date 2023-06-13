@@ -1,5 +1,22 @@
 package com.module.utils.time.attendance;
 
-public class PunchInOutUtils {
+import org.openqa.selenium.support.PageFactory;
+
+import com.company.base.BaseClass;
+import com.company.utils.SeleniumCore;
+import com.company.utils.SeleniumUtils;
+import com.company.utils.WaitTime;
+
+public class PunchInOutUtils extends BaseClass {
+	
+	public SeleniumCore seleniumCore;
+	public SeleniumUtils seleniumUtils;
+	public WaitTime waitTime;
+	
+	public PunchInOutUtils() {
+		seleniumCore=PageFactory.initElements(driver, SeleniumCore.class);
+		seleniumUtils=PageFactory.initElements(driver, SeleniumUtils.class);
+		waitTime=PageFactory.initElements(driver, WaitTime.class);
+	}
 
 }
